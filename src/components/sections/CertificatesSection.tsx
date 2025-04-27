@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
@@ -8,25 +7,29 @@ const CertificatesSection = () => {
       title: "Data Analysis with Python",
       issuer: "Coursera",
       date: "May 2023",
-      description: "Comprehensive course covering Python data analysis tools, statistical methods, and data visualization techniques."
+      description: "Comprehensive course covering Python data analysis tools, statistical methods, and data visualization techniques.",
+      image: "/images/coursera-logo.png" // Image path for Coursera
     },
     {
       title: "Machine Learning Fundamentals",
       issuer: "GeeksforGeeks (GFG)",
       date: "December 2022",
-      description: "In-depth exploration of machine learning algorithms, model evaluation, and practical applications."
+      description: "In-depth exploration of machine learning algorithms, model evaluation, and practical applications.",
+      image: "/images/gfg-logo.png" // Image path for GFG
     },
     {
       title: "Tableau Data Visualization",
       issuer: "Coursera",
       date: "August 2023",
-      description: "Advanced training in creating interactive dashboards and effective data storytelling using Tableau."
+      description: "Advanced training in creating interactive dashboards and effective data storytelling using Tableau.",
+      image: "/images/coursera-logo.png" // Image path for Coursera
     },
     {
       title: "SQL Database Management",
       issuer: "GeeksforGeeks (GFG)",
       date: "June 2022",
-      description: "Comprehensive training in SQL database design, query optimization, and database administration."
+      description: "Comprehensive training in SQL database design, query optimization, and database administration.",
+      image: "/images/gfg-logo.png" // Image path for GFG
     }
   ];
 
@@ -41,7 +44,11 @@ const CertificatesSection = () => {
             <Card key={index} className="animate-on-scroll hover:shadow-md transition-shadow">
               <CardHeader className="pb-2">
                 <div className="flex justify-between items-start">
-                  <CardTitle className="text-lg">{certificate.title}</CardTitle>
+                  <div className="flex items-center">
+                    {/* Displaying the certificate image */}
+                    <img src={certificate.image} alt={certificate.issuer} className="w-8 h-8 mr-2" />
+                    <CardTitle className="text-lg">{certificate.title}</CardTitle>
+                  </div>
                   <span className="text-sm text-muted-foreground">{certificate.date}</span>
                 </div>
                 <CardDescription className="text-primary font-medium">
