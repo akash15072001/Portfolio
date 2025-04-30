@@ -33,7 +33,7 @@ pipeline {
         stage('Docker Push') {
             steps {
                 script {
-                    withDockerRegistry([credentialsId: "$DOCKER_HUB_CREDENTIALS", url: '']) {
+                    withDockerRegistry([credentialsId: "$DOCKER_HUB_CREDENTIALS", url: 'https://index.docker.io/v1/']) {
                         bat 'docker push %DOCKER_HUB_REPO%:latest'
                     }
                 }
