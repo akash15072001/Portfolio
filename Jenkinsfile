@@ -33,10 +33,8 @@ pipeline {
         stage('Docker Push') {
             steps {
                 script {
-                    // Debug: Check Docker version and login status
-                    bat 'docker --version'
-                    bat 'docker login -u %DOCKER_HUB_USERNAME% -p %DOCKER_HUB_PASSWORD%'
-                    withDockerRegistry([credentialsId: "$DOCKER_HUB_CREDENTIALS", url: 'https://index.docker.io/v1/']) {
+                    withCredentials([usernamePassword(credentialsId: "$DOCKER_HUB_CREDENTIALS", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        bat 'docker login -u %DOCKER_USERNAME% -p %DOCKER_PASSWORD%'
                         bat 'docker push %DOCKER_HUB_REPO%:latest'
                     }
                 }
