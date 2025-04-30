@@ -16,8 +16,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'npm install'
-                    sh 'npm run build'
+                    bat 'npm install'
+                    bat 'npm run build'
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 script {
-                    sh 'docker build -t $DOCKER_HUB_REPO:latest .'
+                    bat 'docker build -t %DOCKER_HUB_REPO%:latest .'
                 }
             }
         }
@@ -34,7 +34,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry([credentialsId: "$DOCKER_HUB_CREDENTIALS", url: '']) {
-                        sh 'docker push $DOCKER_HUB_REPO:latest'
+                        bat 'docker push %DOCKER_HUB_REPO%:latest'
                     }
                 }
             }
