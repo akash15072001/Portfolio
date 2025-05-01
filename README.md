@@ -19,7 +19,7 @@ Simply visit the [Lovable Project](https://lovable.dev/projects/49a072d6-1f17-4d
 
 The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
